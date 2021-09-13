@@ -3,6 +3,9 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    background-color: honeydew;
+}
 header {
     display: flex;
     height: 100px;
@@ -86,4 +89,20 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+  .projectsContainer {
+      background-color: lightblue;
+      width: 80%;
+      min-height: 200px;
+      margin: auto;
+      margin-top: 100px;
+  }
+  .projectsContainer > h3 {
+      padding: 15px;
+  }
+  .project {
+      background-color: lightpink;
+      height: 100px;
+      width: 600px;
+      cursor: pointer;
   }

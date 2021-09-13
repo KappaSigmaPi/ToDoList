@@ -1,3 +1,5 @@
+import {toDoBuilder} from "./todo";
+
 const addTodoModal = () => {
     const modal = document.createElement('div');
     modal.classList.add('modal');
@@ -21,11 +23,13 @@ const addTodoModal = () => {
     const titleInput = document.createElement('input');
     titleInput.classList.add('todoInput');
     titleInput.type = 'text';
+    titleInput.id = 'title';
     titleInput.placeholder = 'Title';
 
     const descriptionInput = document.createElement('input');
     descriptionInput.classList.add('todoInput');
     descriptionInput.type = 'text';
+    descriptionInput.id = 'description';
     descriptionInput.placeholder = 'Description of todo';
 
     const expLabel = document.createElement('div');
@@ -34,6 +38,7 @@ const addTodoModal = () => {
 
     const expDateInput = document.createElement('input');
     expDateInput.classList.add('todoInput');
+    expDateInput.id = 'expire';
     expDateInput.type = 'date';
     
     const labelForPriority = document.createElement('p');
@@ -45,6 +50,7 @@ const addTodoModal = () => {
     priorityInput1.id = '1';
     priorityInput1.value = '1';
     priorityInput1.name = 'priority';
+    priorityInput1.checked = true;
 
     const label1 = document.createElement('label');
     label1.textContent = "Low";
@@ -85,9 +91,16 @@ const addTodoModal = () => {
     modalContentInput.classList.add('modalInputs');
 
     const submitTodo = document.createElement('button')
-    submitTodo.textContent = 'Create doto';
+    submitTodo.textContent = 'Create todo';
     submitTodo.classList.add('modalInputs');
     submitTodo.classList.add('confirmButton');
+    submitTodo.addEventListener('click', () => {
+        const formTitle = document.getElementById('title').value;
+        const formDescription = document.getElementById('description').value;
+        const formExpire = document.getElementById('expire').value;
+        const formPriority = document.querySelector( 'input[name="priority"]:checked').id;   
+        createTodo(formTitle,formDescription,formExpire,formPriority);
+    });
 
     modal.appendChild(modalContent);
     modalContent.appendChild(helpText);
@@ -106,5 +119,14 @@ const addTodoModal = () => {
     document.body.appendChild(modal);
 };
 
+function createTodo(title, description, expireDate, priority) {
+    document.getElementById('title').value = "";
+    document.getElementById('description').value = "";
+    document.getElementById('expire').value = "";
+    const modal = document.querySelector('.modal');
+    document.body.removeChild(modal);
 
-export { addTodoModal};
+    toDoBuilder(title, description, expireDate, priority);
+}
+
+export { addTodoModal };
