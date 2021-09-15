@@ -22,7 +22,7 @@ module.exports = {
         static: './dist',    
     },
     watch: true,
-    mode: 'development',
+    mode: 'production',
     watchOptions: {
         aggregateTimeout: 600,
         poll: 1000,
