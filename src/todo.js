@@ -1,16 +1,21 @@
-const toDoBuilder = (title, description, dueDate, priority) => {
-    title:  title;
-    description:  description;
-    dueDate:  dueDate;
-    priority:  priority;
-    isDone:  false;
+const toDoBuilder = (() => {
+    const addToProject = (title, description, expDate, priority, project) => {
+        const usingProject = JSON.parse(localStorage.getItem(project));
+        usingProject.todos.push({
+            "title": title,
+            "description": description,
+            "expDate": expDate,
+            "priority": priority, 
+        });
+        localStorage.setItem(project, JSON.stringify(usingProject));
+    }
 
     const changeStatus = () => {
         if(isDone == false) isDone = true;
         else isDone = false;
     }
     
-    return {changeStatus};
-};
+    return {changeStatus, addToProject};
+})();
 
 export { toDoBuilder };

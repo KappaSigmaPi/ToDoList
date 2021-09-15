@@ -1,16 +1,21 @@
 import { Project } from "./project";
+import { storageData } from "./localStorage";
 
 const ProjectContainer = (() => {
     let projectList = [];
 
-    const addProject = (project) => {
-        projectList.push(project);
+    const createProject = (name) => {
+        return{
+            projectName: name,
+            todos: [],
+        };
+   
     };
     const removeProject = (number) => {
         projectList.splice(number, 1);
     };
 
-    const renderProjects = () => {
+    /*const renderProjects = () => {
         projectList.forEach(project => {
             const container = document.querySelector('.projectsContainer');
             const representation = document.createElement('div');
@@ -27,11 +32,9 @@ const ProjectContainer = (() => {
 
             container.appendChild(representation);
         });
-    };
+    };*/
     return {
-        addProject,
-        removeProject,
-        renderProjects,
+        createProject,
     };
 
 })();

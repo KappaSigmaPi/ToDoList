@@ -22,6 +22,16 @@ header {
     margin-top: 12px;
     margin-left: 12px;
 }
+#createProject {
+    width: 200px;
+    background-color:  yellow;
+    cursor: pointer;
+    font-size: 26px;
+    margin-right: 20px;
+}
+#createProject:hover {
+    background-color: rgb(185, 185, 52);
+}
 #addTodo {
     width: 300px;
     background-color: red;
@@ -38,6 +48,7 @@ section {
 footer {
     height: 150px;
     background-color: khaki;
+    margin-top: 50px;
 }
 .modal {
     display: block;
@@ -59,7 +70,7 @@ footer {
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 90%; 
 }
 .modalInputs {
     display: flex;
@@ -96,6 +107,7 @@ footer {
       min-height: 200px;
       margin: auto;
       margin-top: 100px;
+      padding-bottom: 50px;
   }
   .projectsContainer > h3 {
       padding: 15px;
@@ -104,5 +116,53 @@ footer {
       background-color: lightpink;
       height: 100px;
       width: 600px;
+      border: black 1px solid;
+      margin: auto;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: row;
+      font-size: 32px;
+      align-items: center;
+      justify-content:space-evenly;
+  }
+  .counter {
+      font-size: 26px;
+  }
+  .projectShow {
+      border: 1px solid black;
+      background-color: green;
+      font-size: 24px;
       cursor: pointer;
+  }
+  .projectDelete {
+      border: 1px black solid;
+      background-color: red;
+      font-size: 24px;
+      cursor: pointer;
+  }
+  .todoContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 33%);
+      gap: 10px 10px;
+  }
+  .todoDisplay {
+      min-height: 50px;
+      border: 1px black solid;
+  }
+  .todoTitle {
+      text-align: center;
+  }
+  .todoField {
+      padding: 3px;
+  }
+  .deleteButtonWrapper {
+      display: flex;
+      justify-content: center;
+  }
+  .deleteButton {
+      background-color: red;
+      cursor: pointer;
+      height: 40px;
+      font-size: 18px;
+      margin-bottom: 10px;
   }
